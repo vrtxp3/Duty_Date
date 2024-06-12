@@ -1,0 +1,63 @@
+body {
+    background-color: #272a30; /* Тёмно-серо-металлический фон */
+    font-family: Arial, sans-serif; /* Современный шрифт */
+    color: #fff; /* Белый цвет текста для контраста */
+    display: flex;
+    justify-content: center; /* Центрирование контента по горизонтали */
+    align-items: center; /* Центрирование контента по вертикали */
+    height: 100vh; /* Высота всего экрана */
+    margin: 0; /* Убрать стандартные отступы */
+    position: relative; /* Относительное позиционирование для заголовка */
+}
+
+h1 {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0; /* В верхнем углу */
+    left: 0; /* В левом углу */
+    margin: 10px; /* Отступ */
+    color: #ccc; /* Светло-серый цвет */
+}
+
+.container {
+    width: 50%; /* Ширина контейнера */
+    padding: 40px; /* Внутренние отступы */
+    border: 2px solid #204537; /* Тёмно-изумрудная обводка */
+    border-radius: 10px; /* Закругление углов */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень вокруг контейнера */
+    background-color: #313339; /* Фон контейнера */
+}
+
+.input-group {
+    margin-bottom: 25px; /* Увеличенный отступ снизу */
+}
+
+.input-group label {
+    font-size: 18px; /* Увеличенный размер шрифта */
+    margin-bottom: 10px; /* Увеличенный отступ снизу */
+    color: #ddd; /* Светло-серый цвет */
+}
+
+.input-group input {
+    padding: 10px 15px; /* Увеличенные внутренние отступы */
+    border: 2px solid #42444c; /* Утолщенная граница */
+    border-radius: 5px; /* Закругление углов */
+    font-size: 16px; /* Увеличенный размер шрифта */
+    width: calc(100% - 0px); /* Вычитаем внутренние отступы контейнера из ширины */
+    background-color: #42444c; /* Фон поля ввода */
+    color: #fff; /* Белый цвет текста */
+    box-sizing: border-box; /* Границы и padding включены в ширину */
+}
+
+.input-group p {
+    font-size: 16px; /* Увеличенный размер шрифта */
+    margin-top: 10px; /* Увеличенный отступ сверху */
+    cursor: pointer; /* Курсор в виде руки при наведении */
+    transition: transform 0.5s ease; /* Плавное изменение при клике */
+    background-color: #42444c; /* Фон параграфа */
+    padding: 10px; /* Внутренние отступы */
+    border-radius: 5px; /* Закругление углов */
+}
+
+.input-group p:active {
+    transform: translateY(5px); /* Смещение вниз при клике */
+}
