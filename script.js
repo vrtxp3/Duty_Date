@@ -1,4 +1,5 @@
 function convertDate(dateString) {
+  dateString = dateSring.trim();
   // Проверка формата даты
   const formatRegex = /^(?:\d{4}-\d{1,2}-\d{1,2})|(?:\d{2}\/\d{2}\/\d{4})$/;
   if (!formatRegex.test(dateString)) {
