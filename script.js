@@ -1,20 +1,29 @@
+function extractDate(dateString) {
+  // Регулярные выражения для поиска дат в форматах YYYY-MM-DD и DD/MM/YYYY
+  const regexYMD = /\d{4}-\d{2}-\d{2}/;
+  const regexDMY = /\d{2}\/\d{2}\/\d{4}/;
+
+  // Поиск соответствия в строке
+  const matchYMD = dateString.match(regexYMD);
+  const matchDMY = dateString.match(regexDMY);
+
+  // Извлечение найденной даты
+  const matchedDate = matchYMD ? matchYMD[0] : (matchDMY ? matchDMY[0] : null);
+
+  // Если дата не найдена, возвращаем сообщение об ошибке
+  if (!matchedDate) {
+    return "Дата не найдена в строке.";
+  }
+
+  return convertDate(matchedDate);
+}
+
 function convertDate(dateString) {
   // Определение формата даты и разделение на части
-  let parts;
-  if (dateString.includes("-")) {
-    parts = dateString.split("-");
-  } else {
-    parts = dateString.split("/");
-  }
+  let parts = dateString.includes("-") ? dateString.split("-") : dateString.split("/");
 
   // Удаление пробелов и ведущих нулей из каждой части
   parts = parts.map(part => part.trim().replace(/^0+/, ""));
-
-  // Проверка формата даты
-  const formatRegex = /^(?:\d{4}-\d{1,2}-\d{1,2})|(?:\d{2}\/\d{2}\/\d{4})$/;
-  if (!formatRegex.test(parts.join("-"))) {
-    return "Неверный формат даты. Должен быть YYYY-MM-DD или DD/MM/YYYY.";
-  }
 
   // Присвоение значений дня, месяца и года
   let day, month, year;
@@ -29,18 +38,8 @@ function convertDate(dateString) {
 
   // Получение названия месяца
   const months = [
-    "января",
-    "февраля",
-    "марта",
-    "апреля",
-    "мая",
-    "июня",
-    "июля",
-    "августа",
-    "сентября",
-    "октября",
-    "ноября",
-    "декабря",
+    "января", "февраля", "марта", "апреля", "мая", "июня",
+    "июля", "августа", "сентября", "октября", "ноября", "декабря"
   ];
   const monthName = months[month];
 
