@@ -8,12 +8,15 @@ function extractDate(dateString) {
   const matchDMY = dateString.match(regexDMY);
 
   // Извлечение найденной даты
-  const matchedDate = matchYMD ? matchYMD[0] : (matchDMY ? matchDMY[0] : null);
+  let matchedDate = matchYMD ? matchYMD[0] : (matchDMY ? matchDMY[0] : null);
 
   // Если дата не найдена, возвращаем сообщение об ошибке
   if (!matchedDate) {
     return "Дата не найдена в строке.";
   }
+
+  // Удаление лишних символов, которые могли попасть в результат
+  matchedDate = matchedDate.replace(/[^0-9\-\/]/g, '');
 
   return convertDate(matchedDate);
 }
@@ -59,7 +62,7 @@ const convertedDate2Element = document.getElementById("convertedDate2");
 // Обработка события ввода для первого поля даты
 dateInput1.addEventListener("input", () => {
   const dateString = dateInput1.value;
-  const convertedDate = convertDate(dateString);
+  const convertedDate = extractDate(dateString); // Используем функцию extractDate
   convertedDate1Element.textContent = convertedDate;
 });
 
@@ -71,7 +74,7 @@ convertedDate1Element.addEventListener("click", () => {
 // Обработка события ввода для второго поля даты
 dateInput2.addEventListener("input", () => {
   const dateString = dateInput2.value;
-  const convertedDate = convertDate(dateString);
+  const convertedDate = extractDate(dateString); // Используем функцию extractDate
   convertedDate2Element.textContent = convertedDate;
 });
 
@@ -79,5 +82,3 @@ dateInput2.addEventListener("input", () => {
 convertedDate2Element.addEventListener("click", () => {
   navigator.clipboard.writeText(convertedDate2Element.textContent);
 });
-
-
