@@ -6,7 +6,7 @@ function convertDate(dateString) {
     return "Неверный формат даты. Должен быть YYYY-MM-DD или DD/MM/YYYY.";
   }
 
-  // Определение формата даты и разделение на части
+  // Определение формата даты и разделение на части.
   let day, month, year;
   if (dateString.includes("-")) {
     [year, month, day] = dateString.split("-");
