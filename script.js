@@ -1,19 +1,27 @@
 function convertDate(dateString) {
-  // Удаление пробелов в начале и конце строки
-  dateString = dateString.trim();
+  // Определение формата даты и разделение на части
+  let parts;
+  if (dateString.includes("-")) {
+    parts = dateString.split("-");
+  } else {
+    parts = dateString.split("/");
+  }
+
+  // Удаление пробелов и ведущих нулей из каждой части
+  parts = parts.map(part => part.trim().replace(/^0+/, ""));
 
   // Проверка формата даты
   const formatRegex = /^(?:\d{4}-\d{1,2}-\d{1,2})|(?:\d{2}\/\d{2}\/\d{4})$/;
-  if (!formatRegex.test(dateString)) {
+  if (!formatRegex.test(parts.join("-"))) {
     return "Неверный формат даты. Должен быть YYYY-MM-DD или DD/MM/YYYY.";
   }
 
-  // Определение формата даты и разделение на части
+  // Присвоение значений дня, месяца и года
   let day, month, year;
   if (dateString.includes("-")) {
-    [year, month, day] = dateString.split("-");
+    [year, month, day] = parts;
   } else {
-    [day, month, year] = dateString.split("/");
+    [day, month, year] = parts;
   }
 
   // Преобразование месяца в число
@@ -36,8 +44,7 @@ function convertDate(dateString) {
   ];
   const monthName = months[month];
 
-  // Форматирование даты (единый формат день-месяц-год, без ведущих нулей)
-  day = day.replace(/^0+/, ""); // Удаление ведущих нулей из дня
+  // Форматирование даты (единый формат день-месяц-год)
   const formattedDate = `${day} ${monthName} ${year}`;
 
   return formattedDate;
