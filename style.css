@@ -1,63 +1,59 @@
 body {
-    background-color: #272a30; /* Тёмно-серо-металлический фон */
-    font-family: Arial, sans-serif; /* Современный шрифт */
-    color: #fff; /* Белый цвет текста для контраста */
+    background-color: #272a30;
+    font-family: Arial, sans-serif;
+    color: #fff;
     display: flex;
-    justify-content: center; /* Центрирование контента по горизонтали */
-    align-items: center; /* Центрирование контента по вертикали */
-    height: 100vh; /* Высота всего экрана */
-    margin: 0; /* Убрать стандартные отступы */
-    position: relative; /* Относительное позиционирование для заголовка */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
 }
 
 h1 {
-    position: absolute; /* Абсолютное позиционирование */
-    top: 0; /* В верхнем углу */
-    left: 0; /* В левом углу */
-    margin: 10px; /* Отступ */
-    color: #ccc; /* Светло-серый цвет */
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    color: #ccc;
 }
 
 .container {
-    width: 50%; /* Ширина контейнера */
-    padding: 40px; /* Внутренние отступы */
-    border: 2px solid #204537; /* Тёмно-изумрудная обводка */
-    border-radius: 10px; /* Закругление углов */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень вокруг контейнера */
-    background-color: #313339; /* Фон контейнера */
+    width: 50%;
+    padding: 40px;
+    border: 2px solid #204537;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #313339;
 }
 
 .input-group {
-    margin-bottom: 25px; /* Увеличенный отступ снизу */
+    margin-bottom: 25px;
 }
 
 .input-group label {
-    font-size: 18px; /* Увеличенный размер шрифта */
-    margin-bottom: 10px; /* Увеличенный отступ снизу */
-    color: #ddd; /* Светло-серый цвет */
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ddd;
 }
 
 .input-group input {
-    padding: 10px 15px; /* Увеличенные внутренние отступы */
-    border: 2px solid #42444c; /* Утолщенная граница */
-    border-radius: 5px; /* Закругление углов */
-    font-size: 16px; /* Увеличенный размер шрифта */
-    width: calc(100% - 0px); /* Вычитаем внутренние отступы контейнера из ширины */
-    background-color: #42444c; /* Фон поля ввода */
-    color: #fff; /* Белый цвет текста */
-    box-sizing: border-box; /* Границы и padding включены в ширину */
+    padding: 10px 15px;
+    border: 2px solid #42444c;
+    border-radius: 5px;
+    font-size: 16px;
+    width: calc(100% - 0px);
+    background-color: #42444c;
+    color: #fff;
+    box-sizing: border-box;
 }
 
 .input-group p {
-    font-size: 16px; /* Увеличенный размер шрифта */
-    margin-top: 10px; /* Увеличенный отступ сверху */
-    cursor: pointer; /* Курсор в виде руки при наведении */
-    transition: transform 0.5s ease; /* Плавное изменение при клике */
-    background-color: #42444c; /* Фон параграфа */
-    padding: 10px; /* Внутренние отступы */
-    border-radius: 5px; /* Закругление углов */
-}
-
-.input-group p:active {
-    transform: translateY(5px); /* Смещение вниз при клике */
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    background-color: #42444c;
+    padding: 10px;
+    border-radius: 5px;
 }
