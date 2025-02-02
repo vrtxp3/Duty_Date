@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duty_Date</title>
-    <link rel="icon" href="/favicon.ico?v=1" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
+    <link rel="icon" href="favicon.ico?v=2"><!--tst-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <h1>Duty_Date</h1>
 
     <div class="container">
-      <div class="input-group">
-        <label for="dateInput1">
-          Billing 
-          <span style="color: rgb(191, 0, 0)">P</span>
-          ayments &
-          <span style="color: rgb(191, 0, 0)">O</span>
-          rders
-          <br />
-          <span style="font-size: small">YYYY-MM-DD или DD/MM/YYYY</span>
-         
-        </label>
-        <input type="text" id="dateInput1" placeholder="Введите дату" />
+        <div class="input-group">
+            <label for="dateInput1">Billing <span style="color: rgb(191, 0, 0);">P</span>ayments (YYYY-MM-DD)</label>
+            <input type="text" id="dateInput1" placeholder="Введите дату">
+            <p id="convertedDate1"></p>
+        </div>
 
-        <p id="convertedDate1"></p>
-      </div>
+        <div class="input-group">
+            <label for="dateInput2">Billing <span style="color: rgb(193, 0, 0);">O</span>rders (DD/MM/YYYY)</label>
+            <input type="text" id="dateInput2" placeholder="Введите дату">
+            <p id="convertedDate2"></p>
+        </div>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
