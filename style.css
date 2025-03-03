@@ -58,6 +58,38 @@ h1 {
     border-radius: 5px; /* Закругление углов */
 }
 
+/* Новые стили */
+.input-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#pasteButton {
+    padding: 12px 20px;
+    background-color: #42444c;
+    border: 2px solid #204537;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#pasteButton:hover {
+    background-color: #204537;
+    transform: translateY(-2px);
+}
+
+#pasteButton:active {
+    transform: translateY(1px);
+}
+
+.input-group input {
+    width: 100%; /* Изменилось с предыдущего значения */
+}
+
 .input-group p:active {
     transform: translateY(5px); /* Смещение вниз при клике */
 }
