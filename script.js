@@ -40,6 +40,49 @@ function formatResult(day, month, year) {
 const dateInput = document.getElementById("dateInput");
 const convertedDateElement = document.getElementById("convertedDate");
 
+// Новая функция для работы с буфером обмена
+async function handleClipboard() {
+    try {
+        const text = await navigator.clipboard.readText();
+        if (text) {
+            dateInput.value = text;
+            const result = convertDate(text);
+            convertedDateElement.textContent = result;
+            
+            if (!result.startsWith("Неверный")) {
+                await navigator.clipboard.writeText(result);
+            }
+        }
+    } catch (error) {
+        console.log('Ошибка доступа к буферу:', error);
+    }
+}
+
+// Автоматическая обработка при загрузке страницы
+document.addEventListener('DOMContentLoaded', async () => {
+    // Пытаемся прочитать буфер обмена
+    try {
+        await handleClipboard();
+    } catch (error) {
+        // Если нет разрешения, просто фокусируемся на поле ввода
+        dateInput.focus();
+    }
+});
+
+// Обработчик вставки через Ctrl+V или контекстное меню
+dateInput.addEventListener('paste', async (e) => {
+    e.preventDefault();
+    const text = e.clipboardData.getData('text');
+    dateInput.value = text;
+    const result = convertDate(text);
+    convertedDateElement.textContent = result;
+    
+    if (!result.startsWith("Неверный")) {
+        await navigator.clipboard.writeText(result);
+    }
+});
+
+// Обработка события ввода
 dateInput.addEventListener("input", (e) => {
     const result = convertDate(e.target.value);
     convertedDateElement.textContent = result;
@@ -51,6 +94,7 @@ dateInput.addEventListener("input", (e) => {
     }
 });
 
+// Обработка события нажатия на параграф с преобразованной датой
 convertedDateElement.addEventListener("click", () => {
     navigator.clipboard.writeText(convertedDateElement.textContent);
 });
