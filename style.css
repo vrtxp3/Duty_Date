@@ -1,5 +1,5 @@
 body {
-    background-color: #18181c;
+    background-color: rgb(40, 40, 46); /* Новый цвет фона */
     font-family: Arial, sans-serif;
     color: #fff;
     display: flex;
@@ -15,7 +15,7 @@ h1 {
     top: 0;
     left: 0;
     margin: 10px;
-    color: #666;
+    color: #ccc;
 }
 
 .container {
@@ -23,10 +23,10 @@ h1 {
     padding: 40px;
     border: 2px solid transparent;
     border-radius: 10px;
-    background-color: rgb(40, 40, 46);
+    background-color: rgb(50, 50, 56); /* На основе нового фона */
     background-clip: padding-box;
     position: relative;
-    box-shadow: 0 0 15px rgba(0, 20, 40, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .container::after {
@@ -37,9 +37,9 @@ h1 {
     right: -2px;
     bottom: -2px;
     background: linear-gradient(90deg, 
-        #002851 0%, 
-        #00396b 50%, 
-        #004080 100%);
+        #0055aa 0%, 
+        #0088cc 50%, 
+        #00aadd 100%); /* Более тёмный градиент */
     border-radius: 10px;
     z-index: -1;
 }
@@ -51,7 +51,7 @@ h1 {
 .input-group label {
     font-size: 18px;
     margin-bottom: 10px;
-    color: #888;
+    color: #ddd;
 }
 
 .input-row {
@@ -61,38 +61,57 @@ h1 {
 }
 
 #pasteButton {
-    padding: 12px 15px 12px 20px;
-    background: linear-gradient(90deg, #00396b, #004c99);
-    border: 2px solid #002851;
+    padding: 12px 15px 12px 20px; /* Сдвиг текста влево */
+    background: linear-gradient(90deg, #0055aa, #0088cc);
+    border: 2px solid transparent;
     border-radius: 5px;
-    color: #cce4ff;
+    color: #fff;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
     position: relative;
     overflow: hidden;
-    text-align: left;
-    min-width: 80px;
+    text-align: left; /* Выравнивание текста по левому краю */
+    min-width: 100px; /* Фиксированная минимальная ширина */
+}
+
+#pasteButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: left 0.6s;
+}
+
+#pasteButton:hover::before {
+    left: 100%;
 }
 
 #pasteButton:hover {
-    background: linear-gradient(90deg, #004080, #00509e);
-    box-shadow: 0 0 10px rgba(0, 40, 80, 0.5);
+    background: linear-gradient(90deg, #0077bb, #0099dd);
+    box-shadow: 0 0 15px rgba(0, 102, 204, 0.4);
 }
 
 #pasteButton:active {
     transform: translateY(1px);
-    background: linear-gradient(90deg, #00396b, #004c99);
 }
 
 .input-group input {
     padding: 10px 15px;
-    border: 2px solid #2d2d35;
+    border: 2px solid rgb(60, 60, 66); /* На основе нового фона */
     border-radius: 5px;
     font-size: 16px;
     width: 100%;
-    background-color: #2d2d35;
+    background-color: rgb(60, 60, 66); /* На основе нового фона */
     color: #fff;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
@@ -100,7 +119,7 @@ h1 {
 
 .input-group input:focus {
     outline: none;
-    border-color: #004c99;
+    border-color: #0088cc;
 }
 
 .input-group p {
@@ -108,11 +127,10 @@ h1 {
     margin-top: 10px;
     cursor: pointer;
     transition: transform 0.5s ease;
-    background-color: #2d2d35;
+    background-color: rgb(60, 60, 66); /* На основе нового фона */
     padding: 10px;
     border-radius: 5px;
     position: relative;
-    color: #aac8e6;
 }
 
 .input-group p::after {
@@ -123,9 +141,9 @@ h1 {
     right: -2px;
     bottom: -2px;
     background: linear-gradient(90deg, 
-        #002851 0%, 
-        #00396b 50%, 
-        #004080 100%);
+        #0055aa 0%, 
+        #0088cc 50%, 
+        #00aadd 100%); /* Более тёмный градиент */
     border-radius: 5px;
     z-index: -1;
     opacity: 0;
@@ -133,7 +151,7 @@ h1 {
 }
 
 .input-group p:hover::after {
-    opacity: 0.3;
+    opacity: 1;
 }
 
 .input-group p:active {
