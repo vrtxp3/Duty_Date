@@ -1,64 +1,59 @@
 body {
-    background-color: #272a30; /* Тёмно-серо-металлический фон */
-    font-family: Arial, sans-serif; /* Современный шрифт */
-    color: #fff; /* Белый цвет текста для контраста */
+    background-color: #272a30;
+    font-family: Arial, sans-serif;
+    color: #fff;
     display: flex;
-    justify-content: center; /* Центрирование контента по горизонтали */
-    align-items: center; /* Центрирование контента по вертикали */
-    height: 100vh; /* Высота всего экрана */
-    margin: 0; /* Убрать стандартные отступы */
-    position: relative; /* Относительное позиционирование для заголовка */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
 }
 
 h1 {
-    position: absolute; /* Абсолютное позиционирование */
-    top: 0; /* В верхнем углу */
-    left: 0; /* В левом углу */
-    margin: 10px; /* Отступ */
-    color: #ccc; /* Светло-серый цвет */
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    color: #ccc;
 }
 
 .container {
-    width: 50%; /* Ширина контейнера */
-    padding: 40px; /* Внутренние отступы */
-    border: 2px solid #204537; /* Тёмно-изумрудная обводка */
-    border-radius: 10px; /* Закругление углов */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень вокруг контейнера */
-    background-color: #313339; /* Фон контейнера */
+    width: 50%;
+    padding: 40px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background-color: #313339;
+    background-clip: padding-box;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        #0066cc 0%, 
+        #00a2ff 50%, 
+        #00ccff 100%);
+    border-radius: 10px;
+    z-index: -1;
 }
 
 .input-group {
-    margin-bottom: 25px; /* Увеличенный отступ снизу */
+    margin-bottom: 25px;
 }
 
 .input-group label {
-    font-size: 18px; /* Увеличенный размер шрифта */
-    margin-bottom: 10px; /* Увеличенный отступ снизу */
-    color: #ddd; /* Светло-серый цвет */
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ddd;
 }
 
-.input-group input {
-    padding: 10px 15px; /* Увеличенные внутренние отступы */
-    border: 2px solid #42444c; /* Утолщенная граница */
-    border-radius: 5px; /* Закругление углов */
-    font-size: 16px; /* Увеличенный размер шрифта */
-    width: calc(100% - 0px); /* Вычитаем внутренние отступы контейнера из ширины */
-    background-color: #42444c; /* Фон поля ввода */
-    color: #fff; /* Белый цвет текста */
-    box-sizing: border-box; /* Границы и padding включены в ширину */
-}
-
-.input-group p {
-    font-size: 16px; /* Увеличенный размер шрифта */
-    margin-top: 10px; /* Увеличенный отступ сверху */
-    cursor: pointer; /* Курсор в виде руки при наведении */
-    transition: transform 0.5s ease; /* Плавное изменение при клике */
-    background-color: #42444c; /* Фон параграфа */
-    padding: 10px; /* Внутренние отступы */
-    border-radius: 5px; /* Закругление углов */
-}
-
-/* Новые стили */
 .input-row {
     display: flex;
     gap: 10px;
@@ -67,19 +62,41 @@ h1 {
 
 #pasteButton {
     padding: 12px 20px;
-    background-color: #42444c;
-    border: 2px solid #204537;
+    background: linear-gradient(90deg, #0066cc, #00a2ff);
+    border: 2px solid transparent;
     border-radius: 5px;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+#pasteButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: left 0.6s;
+}
+
+#pasteButton:hover::before {
+    left: 100%;
 }
 
 #pasteButton:hover {
-    background-color: #204537;
-    transform: translateY(-2px);
+    background: linear-gradient(90deg, #0088ff, #00ccff);
+    box-shadow: 0 0 15px rgba(0, 136, 255, 0.4);
 }
 
 #pasteButton:active {
@@ -87,9 +104,54 @@ h1 {
 }
 
 .input-group input {
-    width: 100%; /* Изменилось с предыдущего значения */
+    padding: 10px 15px;
+    border: 2px solid #42444c;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #42444c;
+    color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #00a2ff;
+}
+
+.input-group p {
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    background-color: #42444c;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.input-group p::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        #0066cc 0%, 
+        #00a2ff 50%, 
+        #00ccff 100%);
+    border-radius: 5px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.input-group p:hover::after {
+    opacity: 1;
 }
 
 .input-group p:active {
-    transform: translateY(5px); /* Смещение вниз при клике */
+    transform: translateY(5px);
 }
