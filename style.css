@@ -1,48 +1,141 @@
-/* Основные стили */
 body {
-  background-color: #28282e; /* Основной фон */
-  color: #e0e0e0; /* Цвет текста */
+    background-color: #18181c;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
 }
 
-/* Контейнер с элементами */
+h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    color: #666;
+}
+
 .container {
-  border: 2px solid #1a1a1f; /* Темная обводка как ночное небо */
-  background-color: #32323a; /* Производный цвет от основного */
-  border-radius: 8px;
-  padding: 20px;
+    width: 50%;
+    padding: 40px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background-color: rgb(40, 40, 46);
+    background-clip: padding-box;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 20, 40, 0.3);
 }
 
-/* Кнопка "Вставить" */
-.btn-insert {
-  background-color: #3a3a42;
-  border: 1px solid #1a1a1f; /* Темная обводка */
-  color: #e0e0e0;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-align: left; /* Текст прижат к левому краю */
-  padding-left: 18px; /* Дополнительный отступ слева */
-  transition: all 0.3s;
+.container::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        #002851 0%, 
+        #00396b 50%, 
+        #004080 100%);
+    border-radius: 10px;
+    z-index: -1;
 }
 
-.btn-insert:hover {
-  background-color: #42424d;
-  border-color: #25252b;
+.input-group {
+    margin-bottom: 25px;
 }
 
-/* Элементы форм */
-.input-field {
-  background-color: #32323a;
-  border: 1px solid #1a1a1f;
-  color: #e0e0e0;
-  padding: 8px 12px;
-  border-radius: 4px;
+.input-group label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #888;
 }
 
-/* Цветовая схема */
-:root {
-  --primary-bg: #28282e;
-  --secondary-bg: #32323a;
-  --border-dark: #1a1a1f;
-  --text-primary: #e0e0e0;
-  --accent: #4a4a54;
+.input-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#pasteButton {
+    padding: 12px 15px 12px 20px;
+    background: linear-gradient(90deg, #00396b, #004c99);
+    border: 2px solid #002851;
+    border-radius: 5px;
+    color: #cce4ff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    min-width: 80px;
+}
+
+#pasteButton:hover {
+    background: linear-gradient(90deg, #004080, #00509e);
+    box-shadow: 0 0 10px rgba(0, 40, 80, 0.5);
+}
+
+#pasteButton:active {
+    transform: translateY(1px);
+    background: linear-gradient(90deg, #00396b, #004c99);
+}
+
+.input-group input {
+    padding: 10px 15px;
+    border: 2px solid #2d2d35;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #2d2d35;
+    color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #004c99;
+}
+
+.input-group p {
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    background-color: #2d2d35;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    color: #aac8e6;
+}
+
+.input-group p::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        #002851 0%, 
+        #00396b 50%, 
+        #004080 100%);
+    border-radius: 5px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.input-group p:hover::after {
+    opacity: 0.3;
+}
+
+.input-group p:active {
+    transform: translateY(5px);
 }
